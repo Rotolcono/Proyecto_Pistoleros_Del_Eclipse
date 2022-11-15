@@ -18,8 +18,8 @@ function conexion_bbdd() {
     }
 }
 
-function cerrar_sesion_bbdd(){
-    $bd=null;
+function cerrar_sesion_bbdd() {
+    $bd = null;
 }
 
 function obtener_clientes() {
@@ -34,12 +34,8 @@ function obtener_clientes() {
         cerrar_sesion_bbdd();
         return $preparada;
     } catch (Exception $ex) {
-        echo "Error al obtener los clientes: " . $e->getMessage();
+        echo "Error al obtener los clientes: " . $ex->getMessage();
     }
 }
-
-
-
-
 ?>
 
