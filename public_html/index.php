@@ -7,8 +7,7 @@ include '../resources/templates/funciones.php';
 <div id="">
     <?php
     $a=obtener_clientes();
-    var_dump($a);
-    $c=12;
+    
     ?>
 </div>
 <?php
