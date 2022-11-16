@@ -34,7 +34,7 @@ function obtener_clientes() {
         cerrar_sesion_bbdd();
         return $preparada;
     } catch (Exception $ex) {
-        echo "Error al obtener los clientes: " . $ex->getMessage();
+        echo "Error al obtener los clientes: " . $e->getMessage();
     }
 }
 ?>
