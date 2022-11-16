@@ -9,6 +9,7 @@ include '../resources/templates/funciones.php';
 <?php
 
 $a = conexion_bbdd();
+$b=0;
 ?>
 
 
