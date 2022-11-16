@@ -42,9 +42,34 @@ function obtener_clientes() {
     }
 }
 
-function iniciar_sesion(){
-    
+function iniciar_sesion($user, $password){
+    try {
+        $bd = conexion_bbdd();
+        //Se construye la consulta y se guarda en una variable
+        $sql = "SELECT nombre, clave, rol FROM usuarios";
+
+        $preparada = $bd->prepare("SELECT * from clientes");
+        $preparada->execute(array(0));
+        //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
+        cerrar_sesion_bbdd();
+        
+        foreach($preparada as $usuarios){
+            if($usuarios['nombre']==$user && $usuarios['clave']==$password){
+                //echo $usuarios['nombre'];
+                echo "<h2>Good</h2>";
+                $centinela = true;
+            }else{
+                //echo $usuarios['clave'];
+                $centinela = false;
+            }
+        }
+        return $centinela;
+    } catch (Exception $e) {
+        echo "Error al iniciar sesion: " . $e->getMessage();
+    }
 }
+
+
 
 ?>
 

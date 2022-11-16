@@ -6,32 +6,46 @@ include '../resources/templates/funciones.php';
     <form action="login.php" method="POST"> 
         <fieldset>
             <legend class='text-center'>Inicia Sesión</legend>
+            
             <?php
-            $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : "";
-            $clave = isset($_POST['clave']) ? trim($_POST['clave']) : "";
+            //Almacenamos las variablees enviadas por POST
+            if(isset($_POST['login'])){
+            if(isset($_POST['nombre'])){
+                $usuario = $_POST['nombre'];
+            }
+            
+            if(isset($_POST['clave'])){
+                $password = $_POST['clave'];
+                //Damos formatos sha256 a la contraseña para compararla en la base de datos
+                $password= hash('sha256', $password);
+            }
+            echo "entro";
+            $booleano = iniciar_sesion($usuario, $password);
+            if($booleano == true){
+                echo "entro 2";
+                header('Location: indexusu.php');
+            }else{
+                $mensaje="Error al iniciar sesion";
+                
+            }
+            }
             ?>
+            <h2><?php if(isset($mensaje)){echo $mensaje;} ?></h2>
+            <?php
+            //Iniciio de sesion
 
-            <?php
-            if (isset($titulo))
-                echo "<h1 class='text-center'>$titulo</h1><hr>";
             ?>
-            <?php
-            if (isset($mensaje))
-                echo "<h2>$mensaje</h2>";
-            ?>
-            <?php
-            ?>
-
+            
             <!--action -> controlador y la ACCION!! -->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Teclea usuario</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre" value="<?php echo $nombre; ?>">
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre" value="">
                 <div id="emailHelp" class="form-text">
                 </div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Teclea contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="clave" value="<?php echo $clave; ?>">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="clave" value="">
                 <div id="emailHelp" class="form-text">
                 </div>
             </div>
