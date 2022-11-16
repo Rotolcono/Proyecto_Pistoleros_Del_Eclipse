@@ -26,9 +26,9 @@ function obtener_clientes() {
     try {
         $bd = conexion_bbdd();
         //Se construye la consulta y se guarda en una variable
-        $sql = "SELECT nombre, clave, rol FROM usuarios";
+        $sql = "SELECT nombre, clave, rol FROM usuarios;";
 
-        $preparada = $bd->prepare("SELECT * from clientes");
+        $preparada = $bd->prepare("SELECT * from clientes;");
         $preparada->execute(array(0));
         //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
         cerrar_sesion_bbdd();
@@ -46,9 +46,9 @@ function iniciar_sesion($user, $password){
     try {
         $bd = conexion_bbdd();
         //Se construye la consulta y se guarda en una variable
-        $sql = "SELECT nombre, clave, rol FROM usuarios";
+        //$sql = "SELECT nombre, clave, rol FROM usuarios";
 
-        $preparada = $bd->prepare("SELECT * from clientes");
+        $preparada = $bd->prepare("SELECT * from clientes;");
         $preparada->execute(array(0));
         //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
         cerrar_sesion_bbdd();

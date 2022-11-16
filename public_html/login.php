@@ -25,7 +25,7 @@ include '../resources/templates/funciones.php';
                 echo "entro 2";
                 header('Location: indexusu.php');
             }else{
-                $mensaje="Error al iniciar sesion";
+                $mensaje="Credenciales invalidas";
                 
             }
             }
