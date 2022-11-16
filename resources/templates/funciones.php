@@ -32,10 +32,19 @@ function obtener_clientes() {
         $preparada->execute(array(0));
         //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
         cerrar_sesion_bbdd();
+        
+        foreach($preparada as $usu){
+            echo $usu['nombre'];
+        }
         return $preparada;
-    } catch (Exception $ex) {
+    } catch (Exception $e) {
         echo "Error al obtener los clientes: " . $e->getMessage();
     }
 }
+
+function iniciar_sesion(){
+    
+}
+
 ?>
 

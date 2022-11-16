@@ -8,8 +8,8 @@ include '../resources/templates/funciones.php';
 
 <?php
 
-$a = conexion_bbdd();
-$b=0;
+
+$a=obtener_clientes();
 ?>
 
 
