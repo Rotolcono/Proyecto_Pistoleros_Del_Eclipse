@@ -42,19 +42,22 @@ function obtener_clientes() {
     }
 }
 
-function iniciar_sesion($user, $password){
+function iniciar_sesion($user,$password){
     try {
-        $bd = conexion_bbdd();
-        //Se construye la consulta y se guarda en una variable
-        //$sql = "SELECT nombre, clave, rol FROM usuarios";
 
-        $preparada = $bd->prepare("SELECT * from clientes;");
-        $preparada->execute(array(0));
-        //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
-        cerrar_sesion_bbdd();
-        
-        foreach($preparada as $usuarios){
-            if($usuarios['nombre']==$user && $usuarios['clave']==$password){
+        $bd = conexion_bbdd();
+        echo "Conexión realizada con éxito <br>";
+                //Se construye la consulta y se guarda en una variable
+                $sql="SELECT nombre, clave, rol FROM clientes";
+                //Se ejecuta la consulta y se guarda en una variable
+                $usuarios = $bd->query($sql);
+                echo "Número de usuarios: ".$usuarios->rowCount()."<br>";
+                //Se recorre el array que nos devuelve la consulta
+
+
+                foreach($usuarios as $usu){
+                    echo 'entro';
+            if($usu['nombre']==$user && $usu['clave']==$password){
                 //echo $usuarios['nombre'];
                 echo "<h2>Good</h2>";
                 $centinela = true;

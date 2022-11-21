@@ -9,7 +9,7 @@ include '../resources/templates/funciones.php';
 <?php
 
 
-$a=obtener_clientes();
+
 ?>
 
 
