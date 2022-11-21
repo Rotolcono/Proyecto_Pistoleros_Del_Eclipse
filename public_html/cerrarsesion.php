@@ -7,8 +7,14 @@ include '../resources/templates/funciones.php';
 
 
 <?php
-echo "<h1>Bienvenido ".$_SESSION['nombre']."</h1>";
+
+unset($_SESSION['nombre']);
+unset($_SESSION['rol']);
+session_destroy();
+header('Location: index.php');
+
 ?>
+
 
 <?php
 

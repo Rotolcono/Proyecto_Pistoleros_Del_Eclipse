@@ -22,26 +22,6 @@ function cerrar_sesion_bbdd() {
     $bd = null;
 }
 
-function obtener_clientes() {
-    try {
-        $bd = conexion_bbdd();
-        //Se construye la consulta y se guarda en una variable
-        $sql = "SELECT nombre, clave, rol FROM usuarios;";
-
-        $preparada = $bd->prepare("SELECT * from clientes;");
-        $preparada->execute(array(0));
-        //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
-        cerrar_sesion_bbdd();
-        
-        foreach($preparada as $usu){
-            echo $usu['nombre'];
-        }
-        return $preparada;
-    } catch (Exception $e) {
-        echo "Error al obtener los clientes: " . $e->getMessage();
-    }
-}
-
 function iniciar_sesion($user,$password){
     try {
 
@@ -60,6 +40,9 @@ function iniciar_sesion($user,$password){
             if($usu['nombre']==$user && $usu['clave']==$password){
                 //echo $usuarios['nombre'];
                 echo "<h2>Good</h2>";
+                //Creamos la variablles de sesion
+                $_SESSION["nombre"]=$usu['nombre'];
+                $_SESSION["rol"]=$usu['rol'];
                 $centinela = true;
             }else{
                 //echo $usuarios['clave'];
@@ -71,6 +54,10 @@ function iniciar_sesion($user,$password){
         echo "Error al iniciar sesion: " . $e->getMessage();
     }
 }
+
+
+
+
 
 
 
