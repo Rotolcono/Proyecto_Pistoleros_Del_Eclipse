@@ -4,7 +4,7 @@ session_start();
 
 function conexion_bbdd() {
     //Base de datos de ejemplo
-    $cadena_conexion = "mysql:dbname=proyecto;host=127.0.0.1";
+    $cadena_conexion = "mysql:dbname=BBDD_eclipse;host=127.0.0.1";
     $usuario = "root";
     $clave = "";
     try {
