@@ -6,8 +6,13 @@ include_once '../../resources/templates/header.php';
 
 <?php
 if(isset($_POST['insertar'])){
-    $a=$_POST['precio'];
-    echo "El precio es: ".$a;
+    $nombre = $_POST['nombre'];
+    $precio = $_POST['precio'];
+    $tipo = $_POST['tipo'];
+    //Falta de funcion insertar pasandole por parametro los valores e insertando en la base de datos.
+    echo $nombre;
+    echo $tipo;
+    echo $precio;
 }
 ?>
 <form action="insertarproducto.php" method="POST">
@@ -24,7 +29,7 @@ if(isset($_POST['insertar'])){
     
   <div class="form-group">
     <label for="exampleFormControlSelect1">Selecciona tipo:</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+    <select class="form-control" id="exampleFormControlSelect1" placeholder="" name="tipo" value="">
       <option>Tarjeta grafica</option>
       <option>Disco duro</option>
       <option>Placa base</option>
