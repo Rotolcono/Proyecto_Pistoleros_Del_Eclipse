@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function conexion_bbdd() {
     //Base de datos de ejemplo
     $cadena_conexion = "mysql:dbname=proyecto;host=127.0.0.1";
@@ -50,7 +52,7 @@ function iniciar_sesion($user, $password) {
 
 function crear_variables_sesion($user, $password) {
     try {
-
+        
         $bd = conexion_bbdd();
         echo "Conexión realizada con éxito <br>";
         //Se construye la consulta y se guarda en una variable

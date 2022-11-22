@@ -1,6 +1,8 @@
 <?php
-include_once '../resources/templates/header.php';
-include '../resources/templates/funciones.php';
+include '../../resources/templates/funciones.php';
+$_SESSION['rol'] = 3;
+include_once '../../resources/templates/header.php';
+
 ?>
 <div class="container"><br>
     <form action="login.php" method="POST"> 
@@ -37,13 +39,13 @@ include '../resources/templates/funciones.php';
             
             <!--action -> controlador y la ACCION!! -->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Teclea usuario</label>
+                <label for="exampleInputEmail1" class="form-label">Usuario</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre" value="">
                 <div id="emailHelp" class="form-text">
                 </div>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Teclea contraseña</label>
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="clave" value="">
                 <div id="emailHelp" class="form-text">
                 </div>
@@ -58,5 +60,5 @@ include '../resources/templates/funciones.php';
 
 </div>
 <?php
-include_once '../resources/templates/footer.php';
+include_once '../../resources/templates/footer.php';
 ?>
