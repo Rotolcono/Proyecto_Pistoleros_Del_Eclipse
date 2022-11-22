@@ -19,10 +19,9 @@ include '../resources/templates/funciones.php';
                 //Damos formatos sha256 a la contraseña para compararla en la base de datos
                 $password= hash('sha256', $password);
             }
-            echo "entro";
             $booleano = iniciar_sesion($usuario, $password);
             if($booleano == true){
-                echo "entro 2";
+                crear_variables_sesion($usuario, $password);
                 header('Location: indexusu.php');
             }else{
                 $mensaje="Credenciales invalidas";

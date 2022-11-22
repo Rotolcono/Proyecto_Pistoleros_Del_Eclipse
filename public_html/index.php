@@ -8,8 +8,6 @@ include '../resources/templates/funciones.php';
 
 <?php
 
-
-
 ?>
 
 

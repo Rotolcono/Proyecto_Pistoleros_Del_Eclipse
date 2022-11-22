@@ -5,7 +5,7 @@ session_start();
 <html lang="es">
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="content-type">
-        <title>Ejercicio.</title>
+        <title>Proyecto.</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/estilos.css"/>
     </head>
@@ -41,6 +41,9 @@ session_start();
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="mostrarproductos.php">Ver Catalogo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
