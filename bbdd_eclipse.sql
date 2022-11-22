@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2022 a las 20:55:40
+-- Tiempo de generación: 22-11-2022 a las 21:12:26
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -55,7 +55,7 @@ INSERT INTO `clientes` (`idcliente`, `rol`, `nombre`, `direccion`, `email`, `cla
 CREATE TABLE `productos` (
   `idproducto` int(3) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `precio` float(6,2) NOT NULL,
+  `precio` int(6) NOT NULL,
   `tipo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -64,10 +64,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `tipo`) VALUES
-(1, 'Disco duro Samsung NVMe PCIe 1TB', 99.00, 'Disco duro'),
-(2, 'Intel Core i7 10700K ', 399.00, 'Procesador'),
-(3, 'Asus Rog Strix RTX3070Ti', 649.00, 'Tarjeta grafica'),
-(4, 'Asus Rog Strix B550 White', 120.00, 'Placa Base');
+(1, 'Disco duro Samsung NVMe PCIe 1TB', 99, 'Disco duro'),
+(2, 'Intel Core i7 10700K ', 399, 'Procesador'),
+(3, 'Asus Rog Strix RTX3070Ti', 649, 'Tarjeta grafica'),
+(4, 'Asus Rog Strix B550 White', 120, 'Placa Base');
 
 -- --------------------------------------------------------
 

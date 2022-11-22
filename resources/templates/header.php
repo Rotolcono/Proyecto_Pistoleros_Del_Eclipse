@@ -93,7 +93,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="insertar_productos.php">Insertar Productos</a>
+                            <a class="nav-link" href="insertarproducto.php">Insertar Productos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
