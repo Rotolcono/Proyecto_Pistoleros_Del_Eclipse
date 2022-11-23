@@ -1,5 +1,6 @@
 <?php
-function cookies() {
+
+function cookieVisitasPaginaPrincipal() {
     if (!isset($_COOKIE ["visitas"])) {
         //Expira en 10 segundos
         setcookie("visitas", "1", time() + 10);

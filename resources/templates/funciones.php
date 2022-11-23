@@ -284,9 +284,9 @@ function sesion_inactividad() {
         //comparamos el tiempo transcurrido y si paso el tiempo puesto en la misma pagina, te devuelve a la principal
         if ($tiempo_transcurrido >= 600) {
             // destruyo la sesión
-            session_destroy(); 
+            session_destroy();
             //envío al usuario a la pag. de autenticación
-            header("Location: login.php"); 
+            header("Location: login.php");
             //sino, actualizo la fecha de la sesión
         } else {
             $_SESSION["ultimoAcceso"] = $ahora;

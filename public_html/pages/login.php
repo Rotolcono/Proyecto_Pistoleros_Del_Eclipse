@@ -25,9 +25,9 @@ include_once '../../resources/templates/header.php';
                     crear_variables_sesion($usuario, $password);
                     
                     // inicio la sesión
-                    $_SESSION["autentificado"]= "SI";
+                    $_SESSION["autentificado"] = "SI";
                     //defino la sesión que demuestra que el usuario está autorizado
-                    $_SESSION["ultimoAcceso"]= date("Y-n-j H:i:s");
+                    $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
                     header('Location: indexusu.php');
                 } else {
                     $mensaje = "Credenciales invalidas";
