@@ -1,5 +1,5 @@
 <?php
-
+include '../../resources/templates/cookies.php';
 include '../../resources/templates/funciones.php';
 include_once '../../resources/templates/header.php';
 
@@ -8,6 +8,11 @@ include_once '../../resources/templates/header.php';
 
 <?php
 sesion_inactividad();
+
+if ($_SESSION['nombre']=="usuario" && $_SESSION['nombre']="usuario"){   
+    cookieLoginUsers();
+}
+
 echo "<h1>Bienvenido " . $_SESSION['nombre'] . "</h1>";
 ?>
 

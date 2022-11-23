@@ -15,5 +15,19 @@ function cookieVisitasPaginaPrincipal() {
         echo "<h1>Bienvenido a Pistoleros del Eclipse (" . $visitas . " vez)</h1>";
     }
 }
+
+function cookieLoginUsers() {
+    if (!isset($_COOKIE ["visitasUsers"])) {
+        //Expira en 10 segundos
+        setcookie("visitasUsers", "1", time() + 3600 * 60);
+    }
+    //si no es la primera que visitamos esa página 
+    else {
+        //No olvidar hacer casting a entero
+        $visitas = ((int) $_COOKIE["visitasUsers"]);
+        $visitas++; //Se actualiza la variable 
+        setcookie("visitas", $visitas, time() + 10);
+    }
+}
 ?>
 
