@@ -62,17 +62,17 @@
                     </div>
                 <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="indexusu.php"><img src="../images/Logotipo.PNG"></a>
+                <a class="navbar-brand" href="indexUsu.php"><img src="../images/Logotipo.PNG"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="mostrarproductos.php">Ver Catalogo</a>
+                            <a class="nav-link" href="mostrarProductos.php">Ver Catalogo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="cerrarSesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
@@ -86,20 +86,20 @@
                     </div>
                 <div>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="indexusu.php"><img src="../images/Logotipo.PNG"></a>
+                <a class="navbar-brand" href="indexUsu.php"><img src="../images/Logotipo.PNG"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="insertarproducto.php">Insertar Productos</a>
+                            <a class="nav-link" href="insertarProducto.php">Insertar Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="modificarborrarproducto.php">Modificar-Borrar Productos</a>
+                            <a class="nav-link" href="modificarBorrarProducto.php">Modificar-Borrar Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="cerrarSesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
