@@ -2,41 +2,47 @@
 include '../../resources/templates/funciones.php';
 $_SESSION['rol'] = 3;
 include_once '../../resources/templates/header.php';
-
 ?>
 <div class="container"><br>
     <form action="login.php" method="POST"> 
         <fieldset>
             <legend class='text-center'>Inicia Sesión</legend>
-            
+
             <?php
             //Almacenamos las variablees enviadas por POST
-            if(isset($_POST['login'])){
-            if(isset($_POST['nombre'])){
-                $usuario = $_POST['nombre'];
-            }
-            
-            if(isset($_POST['clave'])){
-                $password = $_POST['clave'];
-                //Damos formatos sha256 a la contraseña para compararla en la base de datos
-                $password= hash('sha256', $password);
-            }
-            $booleano = iniciar_sesion($usuario, $password);
-            if($booleano == true){
-                crear_variables_sesion($usuario, $password);
-                header('Location: indexusu.php');
-            }else{
-                $mensaje="Credenciales invalidas";
-                
-            }
-            }
-            ?>
-            <h2><?php if(isset($mensaje)){echo $mensaje;} ?></h2>
-            <?php
-            //Iniciio de sesion
+            if (isset($_POST['login'])) {
+                if (isset($_POST['nombre'])) {
+                    $usuario = $_POST['nombre'];
+                }
 
+                if (isset($_POST['clave'])) {
+                    $password = $_POST['clave'];
+                    //Damos formatos sha256 a la contraseña para compararla en la base de datos
+                    $password = hash('sha256', $password);
+                }
+                $booleano = iniciar_sesion($usuario, $password);
+                if ($booleano == true) {
+                    crear_variables_sesion($usuario, $password);
+                    
+                    // inicio la sesión
+                    $_SESSION["autentificado"]= "SI";
+                    //defino la sesión que demuestra que el usuario está autorizado
+                    $_SESSION["ultimoAcceso"]= date("Y-n-j H:i:s");
+                    header('Location: indexusu.php');
+                } else {
+                    $mensaje = "Credenciales invalidas";
+                }
+            }
             ?>
-            
+            <h2><?php
+            if (isset($mensaje)) {
+                echo $mensaje;
+            }
+            ?></h2>
+                <?php
+                //Iniciio de sesion
+                ?>
+
             <!--action -> controlador y la ACCION!! -->
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Usuario</label>

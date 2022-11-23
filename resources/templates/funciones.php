@@ -1,5 +1,6 @@
 <?php
 
+session_name("Login");
 session_start();
 
 function conexion_bbdd() {
@@ -250,11 +251,10 @@ function mostrar_catalogo_user() {
             echo '<td>' . $usu['nombre'] . '</td>';
             echo '<td>' . $usu['precio'] . '</td>';
             echo '<td>' . $usu['tipo'] . '</td>';
-            echo '<td>' .                   
-                    "<form method='post' action= 'mostrarProducto.php'>"
-                    . "<input type='number' class='form-control' id='' placeholder='' name='precio' value='' min='0' max='100' maxlength='3' required>"
-                    
-                    . '</td>'; 
+            echo '<td>' .
+            "<form method='post' action= 'mostrarProducto.php'>"
+            . "<input type='number' class='form-control' id='' placeholder='' name='precio' value='' min='0' max='100' maxlength='3' required>"
+            . '</td>';
             //Enlace modificar
             echo '<td>';
             echo "<input type='text' name='idproducto'  value='" . $_SESSION['idcliente'] . "' hidden/>";
@@ -269,6 +269,28 @@ function mostrar_catalogo_user() {
         cerrar_sesion_bbdd();
     } catch (Exception $e) {
         echo "Error al iniciar sesion: " . $e->getMessage();
+    }
+}
+
+function sesion_inactividad() {
+    if ($_SESSION["autentificado"] != "SI") {
+        //si no está logueado lo envío a la página de autentificación
+        header("Location: ../index.php");
+    } else {
+        //sino, calculamos el tiempo transcurrido
+        $fechaGuardada = $_SESSION["ultimoAcceso"];
+        $ahora = date("Y-n-j H:i:s");
+        $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
+        //comparamos el tiempo transcurrido y si paso el tiempo puesto en la misma pagina, te devuelve a la principal
+        if ($tiempo_transcurrido >= 600) {
+            // destruyo la sesión
+            session_destroy(); 
+            //envío al usuario a la pag. de autenticación
+            header("Location: login.php"); 
+            //sino, actualizo la fecha de la sesión
+        } else {
+            $_SESSION["ultimoAcceso"] = $ahora;
+        }
     }
 }
 ?>

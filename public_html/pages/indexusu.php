@@ -6,9 +6,8 @@ include_once '../../resources/templates/header.php';
 //Hola esto es un milagro
 ?>
 
-
 <?php
-
+sesion_inactividad();
 echo "<h1>Bienvenido " . $_SESSION['nombre'] . "</h1>";
 ?>
 

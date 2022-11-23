@@ -1,6 +1,4 @@
-<?php
-
-?>
+<?php ?>
 
 <html lang="es">
     <head>
@@ -8,10 +6,10 @@
         <title>Proyecto.</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <?php
-        if (!isset($_SESSION['rol'])) {
+<?php
+if (!isset($_SESSION['rol'])) {
 
-            echo'<link rel="stylesheet" href="css/estilos.css"/>
+    echo'<link rel="stylesheet" href="css/estilos.css"/>
                 </head>
                  <body>
                     <div>
@@ -31,9 +29,9 @@
                     </ul>
                 </div>
             </nav>';
-        } else if (isset($_SESSION['rol']) && ($_SESSION['rol'] == 3)) {
+} else if (isset($_SESSION['rol']) && ($_SESSION['rol'] == 3)) {
 
-            echo'<link rel="stylesheet" href="../css/estilos.css"/>
+    echo'<link rel="stylesheet" href="../css/estilos.css"/>
                 </head>
                  <body>
                     <div>
@@ -53,8 +51,8 @@
                     </ul>
                 </div>
             </nav>';
-        } else if ($_SESSION['rol'] == 2) {
-            echo '<link rel="stylesheet" href="../css/estilos.css"/>
+} else if ($_SESSION['rol'] == 2) {
+    echo '<link rel="stylesheet" href="../css/estilos.css"/>
                 </head>
                  <body>
                     <div>
@@ -77,8 +75,8 @@
                     </ul>
                 </div>
             </nav>';
-        } else if ($_SESSION['rol'] == 1) {
-            echo '<link rel="stylesheet" href="../css/estilos.css"/>
+} else if ($_SESSION['rol'] == 1) {
+    echo '<link rel="stylesheet" href="../css/estilos.css"/>
                 </head>
                  <body>
                     <div>
@@ -104,6 +102,6 @@
                     </ul>
                 </div>
             </nav>';
-        }
-        ?>     
+}
+?>     
     </div>
