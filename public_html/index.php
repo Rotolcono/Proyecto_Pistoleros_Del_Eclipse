@@ -1,11 +1,10 @@
 <?php
-include_once '../resources/templates/header.php';
 
+include_once '../resources/templates/header.php';
 ?>
 
 
 <?php
-
 ?>
 
 

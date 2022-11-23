@@ -163,11 +163,16 @@ function modificar_producto($idprod, $nombre, $precio, $tipo) {
 
 function mostrar_productos_admin() {
     try {
-        $centinela = false;
         $bd = conexion_bbdd();
         //echo "Conexión realizada con éxito <br>";
-        $preparada = $bd->prepare("SELECT * from productos");
-        $preparada->execute(array(0));
+        
+        $sql="SELECT * from productos";
+        
+        $preparada = $bd->prepare($sql);
+        $preparada->setFetchMode(PDO::FETCH_ASSOC);
+        $preparada->execute();
+        //echo "Usuarios con rol 0--> " . $preparada->rowCount() . "<br>";
+             
         echo '<table class="table">';
         //Titulos (thead)
         echo '<thead>
@@ -183,7 +188,8 @@ function mostrar_productos_admin() {
 
         //Cuerpo tabla, toda la informacion
         echo '<tbody>';
-        foreach ($preparada as $usu) {
+         
+        while ($usu = $preparada->fetch()) {
             echo '<tr>';
             echo '<th scope="row">' . $usu['idproducto'] . '</th>';
             echo '<td>' . $usu['nombre'] . '</td>';
