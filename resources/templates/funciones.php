@@ -120,6 +120,46 @@ function borrar_producto($idprod) {
     }
 }
 
+//Funcion que devuelve la informacion del producto.
+function extraer_informacion_producto($idprod) {
+    try {
+        $prod = array();
+        $bd = conexion_bbdd();
+        //echo "Conexión realizada con éxito <br>";
+        $con="select idproducto, nombre, precio, tipo from productos where idproducto='".$idprod."'";
+                $result=$bd->query($con);
+                //Se comprueban los errores
+        foreach($result as $producto){
+            $prod = array('idproducto' => $producto['idproducto'], 'nombre' => $producto['nombre'], 'precio' => $producto['precio'], 'tipo' => $producto['tipo']);
+            //var_dump($producto);
+        }
+        
+        cerrar_sesion_bbdd();
+        return $prod;
+    } catch (Exception $e) {
+        echo "Error al extraer valores: " . $e->getMessage();
+    }
+}
+
+function modificar_producto($idprod, $nombre, $precio, $tipo) {
+    try {
+        $bd = conexion_bbdd();
+        //echo "Conexión realizada con éxito <br>";
+        $upd="update productos set nombre='".$nombre."', precio=".$precio.", tipo='".$tipo."' where idproducto = ".$idprod.";";
+                $result = $bd->query($upd);
+                //comprobamos errores
+                if($result)
+                {
+                    echo "<h2>El producto con el id '".$idprod."' ha sido modificado correctamente</h2><br>";
+                    //echo "Filas actualizadas: ".$result->rowCount()."<br>";
+                }else{
+                    print_r($bd->errorInfo());
+                }
+        cerrar_sesion_bbdd();
+    } catch (Exception $e) {
+        echo "Error al iniciar sesion: " . $e->getMessage();
+    }
+}
 
 function mostrar_productos_admin() {
     try {
@@ -153,7 +193,7 @@ function mostrar_productos_admin() {
             echo '<td>';
             echo "<form method='post' action= 'modificarproducto.php'>";
             echo "<input type='text' name='idproducto'  value='" . $usu['idproducto'] . "' hidden/>";
-            echo "<input type='submit' name='modificar' value='Modificar' />";
+            echo "<button class='btn btn-outline-dark' type='submit' name='modificar'>Modificar</button>";
             echo "</form>";
             echo '</td>';
             //enlace borrar
