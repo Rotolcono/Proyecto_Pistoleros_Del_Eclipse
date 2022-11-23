@@ -96,6 +96,9 @@
                             <a class="nav-link" href="insertarproducto.php">Insertar Productos</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="modificarborrarproducto.php">Modificar-Borrar Productos</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
