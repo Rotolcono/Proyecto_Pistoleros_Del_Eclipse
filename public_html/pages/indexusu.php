@@ -9,7 +9,7 @@ include_once '../../resources/templates/header.php';
 <?php
 sesion_inactividad();
 
-if ($_SESSION['nombre']=="usuario" && $_SESSION['nombre']="usuario"){   
+if ($_SESSION['nombre']=="usuario" && $_SESSION['nombre']="usuario"){  
     cookieLoginUsers();
 }
 

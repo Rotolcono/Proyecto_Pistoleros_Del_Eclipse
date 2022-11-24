@@ -6,6 +6,8 @@ include_once '../../resources/templates/header.php';
 
 <?php
 
+sesion_inactividad();
+
 if (isset($_POST['vaciar'])) {
     unset($_COOKIE['carrito']);
     setcookie("carrito", $carrito, time() - 3600);

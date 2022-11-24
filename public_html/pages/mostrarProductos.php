@@ -5,6 +5,8 @@ include_once '../../resources/templates/header.php';
 ?>
 <?php
 
+sesion_inactividad();
+
 $carrito = array();
 //Si existe la cookie entro
 if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
@@ -46,8 +48,6 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
 ?>
 
 <?php
-
-sesion_inactividad();
 mostrar_catalogo_user();
 ?>
 

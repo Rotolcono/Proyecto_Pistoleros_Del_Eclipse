@@ -274,10 +274,11 @@ function mostrar_catalogo_user() {
 }
 
 function sesion_inactividad() {
-    if ($_SESSION["autentificado"] != "SI") {
-        //si no está logueado lo envío a la página de autentificación
-        header("Location: ../index.php");
-    } else {
+    if ($_SESSION["autentificado"]!= "SI") {
+        //si no está logueado lo envío a la página de autentificación        
+        header("Location: login.php?demonio=2");
+    }
+    else if($_SESSION["autentificado"]== "SI"){
         //sino, calculamos el tiempo transcurrido
         $fechaGuardada = $_SESSION["ultimoAcceso"];
         $ahora = date("Y-n-j H:i:s");
@@ -294,6 +295,7 @@ function sesion_inactividad() {
         }
     }
 }
+
 function realizar_compra($idcliente, $observaciones, $total){
     try {
         $bd = conexion_bbdd();

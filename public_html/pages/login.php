@@ -9,11 +9,15 @@ include_once '../../resources/templates/header.php';
             <legend class='text-center'>Inicia Sesión</legend>
 
             <?php
-            //para la inactividad en la sesion
+            //para la inactividad en la sesion           
             if (isset($_GET['fuera']) && $_GET['fuera'] == 1) {
-                echo "<h2>Tienpo de inactividad en una misma pagina superado</h2>";
+                echo "<h2>Tiempo de inactividad superado</h2>";
             }
-            
+            if (isset($_GET['demonio']) && $_GET['demonio'] == 2) {
+                        echo "<h2>No seas demonio</h2>";
+            }
+
+
             //Almacenamos las variablees enviadas por POST
             if (isset($_POST['login'])) {
                 if (isset($_POST['nombre'])) {
@@ -26,15 +30,19 @@ include_once '../../resources/templates/header.php';
                     $password = hash('sha256', $password);
                 }
                 $booleano = iniciar_sesion($usuario, $password);
+
                 if ($booleano == true) {
                     crear_variables_sesion($usuario, $password);
-
-                    // inicio la sesión
+                    //Inicio de sesion control                   
                     $_SESSION["autentificado"] = "SI";
                     //defino la sesión que demuestra que el usuario está autorizado
                     $_SESSION["ultimoAcceso"] = date("Y-n-j H:i:s");
+                    
+                    sesion_inactividad();                   
+                    
                     header('Location: indexusu.php');
                 } else {
+                    $_SESSION["autentificado"] = "NO";
                     $mensaje = "Credenciales invalidas";
                 }
             }

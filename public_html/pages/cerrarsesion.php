@@ -8,7 +8,7 @@ include_once '../../resources/templates/header.php';
 
 
 <?php
-
+sesion_inactividad();
 unset($_SESSION['nombre']);
 unset($_SESSION['rol']);
 session_destroy();
