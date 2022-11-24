@@ -260,7 +260,7 @@ function mostrar_catalogo_user() {
             //echo "<input type='text' name='idcliente'  value='" . $_SESSION['idcliente'] . "' hidden/>";
             echo "<input type='text' name='nombre'  value='" . $usu['nombre'] . "' hidden/>";
             echo "<input type='text' name='precio'  value='" . $usu['precio'] . "' hidden/>";
-            echo "<button class='btn btn-outline-dark' type='submit' name='añadir'>Añadir al Carrito</button>";
+            echo "<button class='btn btn-outline-success' type='submit' name='añadir'>Añadir al Carrito</button>";
             echo "</form>";
             echo '</td>';
             echo '</tr>';

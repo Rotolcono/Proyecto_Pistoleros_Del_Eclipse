@@ -11,14 +11,13 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
     //echo "existe la cookie";
     $carrito = unserialize($_COOKIE['carrito']);
     //var_dump($carrito);
-
     //Capturamos todas las variables POSTy las guardamos. 
     $nombre = $_POST['nombre'];
     $idcliente = $_SESSION['idcliente'];
     $precio = $_POST['precio'];
     $cantidad = $_POST['cantidad'];
     //Capturamos toda la informacion en un array.
-    
+
     $producto = array('idcliente' => $idcliente, 'nombre' => $nombre, 'precio' => intval($precio), 'cantidad' => intval($cantidad));
     echo"<br>";
     //echo "aaaaaa";
@@ -33,7 +32,7 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
     //Capturamos toda la informacion en un array.
     $producto = array('idcliente' => $idcliente, 'nombre' => $nombre, 'precio' => intval($precio), 'cantidad' => intval($cantidad));
     //array_push($carrito, $producto);
-    $carrito[$nombre]=$producto;
+    $carrito[$nombre] = $producto;
     var_dump($carrito);
 
     $carrito = serialize($carrito);
@@ -47,6 +46,7 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
 ?>
 
 <?php
+
 sesion_inactividad();
 mostrar_catalogo_user();
 ?>

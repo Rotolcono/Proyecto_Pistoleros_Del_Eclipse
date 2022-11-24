@@ -5,25 +5,22 @@ include_once '../../resources/templates/header.php';
 ?>
 
 <?php
-if(isset($_POST['vaciar'])){
+
+if (isset($_POST['vaciar'])) {
     unset($_COOKIE['carrito']);
-    
 }
-if(isset($_POST['comprar'])){
-    $idcliente=$_SESSION['idcliente'];
-    $observaciones=$_POST['observaciones'];
-    $total=$_POST['total'];
-    
+if (isset($_POST['comprar'])) {
+    $idcliente = $_SESSION['idcliente'];
+    $observaciones = $_POST['observaciones'];
+    $total = $_POST['total'];
+
     realizar_compra($idcliente, $observaciones, $total);
 }
 if (isset($_COOKIE['carrito'])) {
-    $observaciones="";
+    $observaciones = "";
     $carrito = unserialize($_COOKIE['carrito']);
     //var_dump($carrito);
     $total = 0;
-    echo "<form method='post' action= 'mostrarCarrito.php'>";
-    echo "<button class='btn btn-outline-dark' type='submit' name='vaciar'>Vaciar Carrito</button>";
-    echo "</form>";
     echo '<table class="table">';
     //Titulos (thead)
     echo '<thead>
@@ -39,8 +36,8 @@ if (isset($_COOKIE['carrito'])) {
     echo '<tbody>';
     foreach ($carrito as $producto => $fila) {
         //Observaciones
-        $notas=$producto." X ".$fila['cantidad'];
-        $observaciones=$observaciones."".$notas.", ";
+        $notas = $producto . " X " . $fila['cantidad'];
+        $observaciones = $observaciones . "" . $notas . ", ";
         echo '<tr>';
         echo '<td>' . $producto . '</td>';
         echo '<td>' . $fila['cantidad'] . '</td>';
@@ -61,18 +58,13 @@ if (isset($_COOKIE['carrito'])) {
     echo "<form method='post' action= 'mostrarCarrito.php'>";
     echo "<input type='text' name='observaciones'  value='" . $observaciones . "' hidden/>";
     echo "<input type='text' name='total'  value='" . $total . "' hidden/>";
-    echo "<button class='btn btn-outline-danger' type='submit' name='comprar'>Realizar compra</button>";
+    echo "<button class='btn btn-outline-success' type='submit' name='comprar'>Realizar compra</button>";
+    echo "<button class='btn btn-outline-danger' type='submit' name='vaciar'>Vaciar Carrito</button>";
     echo "</form>";
-    
-    
 } else {
     echo "<h1>Tu carrito esta vacio</h1>";
 }
 ?>
-
-<?php
-?>
-
 <?php
 
 include_once '../../resources/templates/footer.php';
