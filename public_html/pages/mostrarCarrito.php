@@ -63,8 +63,10 @@ if (isset($_COOKIE['carrito'])) {
     echo "<button class='btn btn-outline-success' type='submit' name='comprar'>Realizar compra</button>";
     echo "<button class='btn btn-outline-danger' type='submit' name='vaciar'>Vaciar Carrito</button>";
     echo "</form>";
-} else {
+} else if(isset($_SESSION['rol']) && $_SESSION['rol']==1){
     echo "<h1>Tu carrito esta vacio</h1>";
+}else{
+    header('Location: ../index.php');
 }
 ?>
 <?php
