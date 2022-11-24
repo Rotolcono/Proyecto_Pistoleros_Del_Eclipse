@@ -304,7 +304,8 @@ function realizar_compra($idcliente, $observaciones, $total){
             //echo "insert correcto <br>";
             //echo "Fila(s) insertadas: ".$result->rowCount()."<br>";
             echo "<h2>Compra Realizada con exito</h2>";
-            unset($_SESSION["carrito"]);
+            //unset($_COOKIE["carrito"]);
+            //setcookie("carrito", $carrito, time() - 3600);
         } else {
             print_r($bd->errorinfo());
         }

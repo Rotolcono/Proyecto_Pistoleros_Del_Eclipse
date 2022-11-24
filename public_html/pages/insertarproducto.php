@@ -35,6 +35,13 @@ if (isset($_POST['insertar'])) {
             <option>Placa base</option>
             <option>Procesador</option>
             <option>Memoria RAM</option>
+            <option>Teclado</option>
+            <option>Ratón</option>
+            <option>Monitor</option>
+            <option>Gabinete</option>
+            <option>Refrigeración</option>
+            <option>Refrigeración Líquida</option>
+            <option>Fuente alimentacion</option>
             <option>Periférico</option>
         </select>
     </div>
