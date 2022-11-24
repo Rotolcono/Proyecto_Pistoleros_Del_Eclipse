@@ -292,10 +292,9 @@ function sesion_inactividad() {
             //sino, actualizo la fecha de la sesión
         } else {
             $_SESSION["ultimoAcceso"] = $ahora;
-        }
-    }
+        }   
+    }   
 }
-
 function realizar_compra($idcliente, $observaciones, $total){
     try {
         $bd = conexion_bbdd();

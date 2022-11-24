@@ -6,6 +6,10 @@ include_once '../../resources/templates/header.php';
 
 <?php
 
+if ($_SESSION["rol"] == 1) {               
+    header('Location: login.php?demonio=2');
+}
+
 sesion_inactividad();
 
 if (isset($_POST['vaciar'])) {
@@ -19,7 +23,6 @@ if (isset($_POST['comprar'])) {
     $total = $_POST['total'];
 
     realizar_compra($idcliente, $observaciones, $total);
-    
 }
 if (isset($_COOKIE['carrito'])) {
     $observaciones = "";
@@ -66,7 +69,7 @@ if (isset($_COOKIE['carrito'])) {
     echo "<button class='btn btn-outline-success' type='submit' name='comprar'>Realizar compra</button>";
     echo "<button class='btn btn-outline-danger' type='submit' name='vaciar'>Vaciar Carrito</button>";
     echo "</form>";
-} else{
+} else {
     echo "<h1>Tu carrito esta vacio</h1>";
 }
 ?>

@@ -5,7 +5,12 @@ include_once '../../resources/templates/header.php';
 
 
 <?php
+if ($_SESSION["rol"] == 2) {               
+    header('Location: login.php?demonio=2');
+}
+
 sesion_inactividad();
+
 if (isset($_POST['insertar'])) {
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];

@@ -79,7 +79,7 @@
                             <a class="nav-link" href="mostrarCarrito.php">Mi Carrito</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cerrarSesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>
@@ -100,13 +100,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="insertarProducto.php">Insertar Productos</a>
+                            <a class="nav-link" href="insertarproducto.php">Insertar Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="modificarBorrarProducto.php">Modificar-Borrar Productos</a>
+                            <a class="nav-link" href="modificarborrarproducto.php">Modificar-Borrar Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="cerrarSesion.php">Cerrar Sesion</a>
+                            <a class="nav-link" href="cerrarsesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
                 </div>

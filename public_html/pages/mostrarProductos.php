@@ -5,6 +5,10 @@ include_once '../../resources/templates/header.php';
 ?>
 <?php
 
+if ($_SESSION["rol"] == 1) {               
+    header('Location: login.php?demonio=2');
+}
+
 sesion_inactividad();
 
 $carrito = array();
