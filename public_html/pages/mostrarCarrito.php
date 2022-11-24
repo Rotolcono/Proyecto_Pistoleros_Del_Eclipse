@@ -8,6 +8,8 @@ include_once '../../resources/templates/header.php';
 
 if (isset($_POST['vaciar'])) {
     unset($_COOKIE['carrito']);
+    setcookie("carrito", $carrito, time() - 3600);
+    header('Location: mostrarCarrito.php');
 }
 if (isset($_POST['comprar'])) {
     $idcliente = $_SESSION['idcliente'];

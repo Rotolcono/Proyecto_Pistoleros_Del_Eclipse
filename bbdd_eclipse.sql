@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2022 a las 21:12:26
+-- Tiempo de generación: 24-11-2022 a las 07:32:16
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -64,10 +64,12 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `tipo`) VALUES
-(1, 'Disco duro Samsung NVMe PCIe 1TB', 99, 'Disco duro'),
+(1, 'NVMe PCIe 2TB', 150, 'Disco duro'),
 (2, 'Intel Core i7 10700K ', 399, 'Procesador'),
-(3, 'Asus Rog Strix RTX3070Ti', 649, 'Tarjeta grafica'),
-(4, 'Asus Rog Strix B550 White', 120, 'Placa Base');
+(4, 'Asus Rog Strix B550 White', 125, 'Placa Base'),
+(5, 'Gigabyte Aorus B560 ', 220, 'Placa base'),
+(8, 'Razer Raion', 40, 'Periférico'),
+(10, 'Razer Deathadder V2', 80, 'Periférico');
 
 -- --------------------------------------------------------
 
@@ -78,9 +80,18 @@ INSERT INTO `productos` (`idproducto`, `nombre`, `precio`, `tipo`) VALUES
 CREATE TABLE `ventas` (
   `idventa` int(3) NOT NULL,
   `idcliente` int(3) NOT NULL,
-  `total` float(8,2) NOT NULL,
-  `fechaventa` timestamp NOT NULL DEFAULT current_timestamp()
+  `fechaventa` timestamp NOT NULL DEFAULT current_timestamp(),
+  `observaciones` mediumtext NOT NULL,
+  `total` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`idventa`, `idcliente`, `fechaventa`, `observaciones`, `total`) VALUES
+(5, 2, '2022-11-24 06:03:51', 'NVMe PCIe 2TB X 3, Intel Core i7 10700K  X 3, Asus Rog Strix B550 White X 5, ', 2272),
+(6, 2, '2022-11-24 06:15:05', 'NVMe PCIe 2TB X 4, Intel Core i7 10700K  X 5, Asus Rog Strix B550 White X 5, ', 3220);
 
 --
 -- Índices para tablas volcadas
@@ -112,13 +123,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idproducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idventa` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `idventa` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

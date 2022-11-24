@@ -19,7 +19,7 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
     //Capturamos toda la informacion en un array.
 
     $producto = array('idcliente' => $idcliente, 'nombre' => $nombre, 'precio' => intval($precio), 'cantidad' => intval($cantidad));
-    echo"<br>";
+    //echo"<br>";
     //echo "aaaaaa";
     //var_dump($carrito);
     //Necesario para que al introducir un producto que ya esta en el carrito solo sume las unidades.
@@ -33,10 +33,10 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
     $producto = array('idcliente' => $idcliente, 'nombre' => $nombre, 'precio' => intval($precio), 'cantidad' => intval($cantidad));
     //array_push($carrito, $producto);
     $carrito[$nombre] = $producto;
-    var_dump($carrito);
+    //var_dump($carrito);
 
     $carrito = serialize($carrito);
-    setcookie("carrito", $carrito);
+    setcookie("carrito", $carrito, time()+3600);
     unset($_POST['añadir']);
     //echo "ddd";
 }
