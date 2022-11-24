@@ -1,4 +1,5 @@
 <?php
+//Incluyo tanto las funciones necesarias como la cabecera
 include '../../resources/templates/funciones.php';
 include_once '../../resources/templates/header.php';
 ?>
@@ -55,5 +56,6 @@ if (isset($_POST['insertar'])) {
 
 </form>
 <?php
+//Incluyo el pie de la pagina
 include_once '../../resources/templates/footer.php';
 ?>

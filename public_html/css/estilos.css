@@ -1,30 +1,3 @@
-body {
-    background-color: #202126;
-    color: #F8F8F8;
-    font-family: 'Poppins', sans-serif;
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    letter-spacing: 3px;
-    background-size: cover;
-}
-
-h1{
-    text-align: center;
-}
-
-h2{
-    color: #66c83d;
-}
-
-
-.table{
-    color: #F8F8F8;
-}
-/* *********************** contenedor *************************** */
-
-
-
 /* *********************** cabecera *************************** */
 p {
     padding: 5px;
@@ -38,7 +11,6 @@ input, td, th {
 }
 
 #cabecera {
-    background: url("../images/footer.jpg") no-repeat;
     color: white;
     height: 100px;
     width: 800px;
@@ -62,14 +34,6 @@ input, td, th {
     height: 0px;
 }
 
-#cabecera .inicio {
-    background: url("../images/footer.png") no-repeat;
-}
-
-#cabecera .inicio:hover {
-    background: url("../images/footer.png") no-repeat;
-}
-
 #menu {
     width: 800px;
     margin: 0 auto;
@@ -78,6 +42,31 @@ input, td, th {
     background:yellowgreen;
 }
 
+/* *********************** cuerpo *************************** */
+
+body {
+    background-color: #202126;
+    color: #F8F8F8;
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    letter-spacing: 3px;
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    color: #66c83d;
+}
+
+
+.table{
+    color: #F8F8F8;
+}
 
 /* *********************** pie *************************** */
 * {

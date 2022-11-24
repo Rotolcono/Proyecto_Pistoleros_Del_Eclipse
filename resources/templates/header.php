@@ -11,6 +11,8 @@
 
 
     <?php
+    //Dependiendo del valor del rol del usuario que sea tendra unos estilos con diferentes opciones
+    //Compruebo si el atributo rol de la sesion existe
     if (!isset($_SESSION['rol'])) {
 
         echo'<link rel="stylesheet" href="css/estilos.css"/>
@@ -40,6 +42,7 @@
         echo'<link rel="stylesheet" href="../css/estilos.css"/>
                 </head>
                  <body>
+                 <header>
                     <div>
 
                     </div>
@@ -56,11 +59,13 @@
                         </li>
                     </ul>
                 </div>
-            </nav>';
+            </nav>
+            </header>';
     } else if ($_SESSION['rol'] == 2) {
         echo '<link rel="stylesheet" href="../css/estilos.css"/>
                 </head>
                  <body>
+                 <header>
                     <div>
 
                     </div>
@@ -83,11 +88,13 @@
                         </li>
                     </ul>
                 </div>
-            </nav>';
+            </nav>
+            </header>';
     } else if ($_SESSION['rol'] == 1) {
         echo '<link rel="stylesheet" href="../css/estilos.css"/>
                 </head>
                  <body>
+                 <header>
                     <div>
 
                     </div>
@@ -110,7 +117,8 @@
                         </li>
                     </ul>
                 </div>
-            </nav>';
+            </nav>
+            </header>';
     }
     ?>     
 </div>

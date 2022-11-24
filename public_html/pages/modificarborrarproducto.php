@@ -1,5 +1,5 @@
 <?php
-
+//Incluyo tanto las funciones necesarias como la cabecera
 include '../../resources/templates/funciones.php';
 include_once '../../resources/templates/header.php';
 ?>
@@ -23,7 +23,7 @@ mostrar_productos_admin();
 ?>
 
 <?php
-
+//Incluyo el pie de la pagina
 include_once '../../resources/templates/footer.php';
 ?>
 

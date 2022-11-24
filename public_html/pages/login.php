@@ -1,4 +1,6 @@
 <?php
+/*Incluyo tanto las funciones necesarias como la cabecera y cambio el rol de la sesion para
+  para el cambio de estilos de header */ 
 include '../../resources/templates/funciones.php';
 $_SESSION['rol'] = 3;
 include_once '../../resources/templates/header.php';
@@ -79,5 +81,6 @@ include_once '../../resources/templates/header.php';
 
 </div>
 <?php
+//Incluyo el pie de la pagina
 include_once '../../resources/templates/footer.php';
 ?>
