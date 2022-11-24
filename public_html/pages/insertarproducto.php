@@ -12,11 +12,11 @@ if ($_SESSION["rol"] == 2) {
 
 sesion_inactividad();
 
+//Si existe es que hemos pulsado el boton.
 if (isset($_POST['insertar'])) {
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];
     $tipo = $_POST['tipo'];
-    //Falta de funcion insertar pasandole por parametro los valores e insertando en la base de datos.
     insertar_producto($nombre, $precio, $tipo);
 }
 ?>

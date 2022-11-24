@@ -3,6 +3,10 @@
 session_name("Login");
 session_start();
 
+/**
+ * Funcion que realiza la conexion con la base de datos, en caso de error advertira con el 
+ * error en cuestion
+ */ 
 function conexion_bbdd() {
     //Base de datos de ejemplo
     $cadena_conexion = "mysql:dbname=BBDD_eclipse;host=127.0.0.1";
@@ -13,31 +17,38 @@ function conexion_bbdd() {
         $bd = new PDO($cadena_conexion, $usuario, $clave);
         // Opcional en MySQL, dependiendo del controlador 
         // de base de datos puede ser obligatorio
-        //$bd->closeCursor(); 
-        //echo "Conexion extablecida";
+
         return $bd;
     } catch (Exception $e) {
         echo "Error al crear la conexion con la BBDD: " . $e->getMessage();
     }
 }
 
+/**
+ * Funcion para cerrar sesion.
+ */
 function cerrar_sesion_bbdd() {
     $bd = null;
 }
 
+/**
+ * Funcion la cual se le pasa por parametro un usuario y contraseña, esta funcion verifica que 
+ * la contraseña introducida corresponda al usuario, devolviendo true si asi es
+ * @param type $user --> Variable que almacena el usuario que inicia sesion y requiere de las variables de session
+ * @param type $password --> Variable que almacena la contraseña del usuario que inicia sesion 
+ * @return boolean --> Sera el valor devuelto, si es true es que el nombre
+ * corresponde con la contraseña y el longin debe de realizarse.
+ */
 function iniciar_sesion($user, $password) {
     try {
         $centinela = false;
         $bd = conexion_bbdd();
         //echo "Conexión realizada con éxito <br>";
-        //Se construye la consulta y se guarda en una variable
         $sql = "SELECT nombre, clave, rol FROM clientes";
         //Se ejecuta la consulta y se guarda en una variable
         $usuarios = $bd->query($sql);
         //echo "Número de usuarios: ".$usuarios->rowCount()."<br>";
         //Se recorre el array que nos devuelve la consulta
-
-
         foreach ($usuarios as $usu) {
 
             if ($usu['nombre'] == $user && $usu['clave'] == $password) {
@@ -51,6 +62,13 @@ function iniciar_sesion($user, $password) {
     }
 }
 
+/**
+ * Funcion necesaria para crear las variables de sesion al iniciar session,
+ * @param type $user --> Variable que almacena el usuario que inicia sesion y requiere de las variables de session
+ * @param type $password --> Variable que almacena el usuario que inicia sesion y requiere de las variables de session.
+ * Se requieren ambos valores para verificar que el usuario se corresponda a esta contraseña
+ * y poder crear las variables.
+ */
 function crear_variables_sesion($user, $password) {
     try {
 
@@ -64,10 +82,11 @@ function crear_variables_sesion($user, $password) {
         //Se recorre el array que nos devuelve la consulta
         foreach ($usuarios as $usu) {
             echo 'entro';
+            //Se verifica que las contraseña introducidad se corresponda al usuario introducido.
             if ($usu['nombre'] == $user && $usu['clave'] == $password) {
                 //echo $usuarios['nombre'];
                 echo "<h2>Variables de sesion creadas</h2>";
-                //Creamos las variables de sesion
+                //Creamos las variables de sesion necesarias para el control de sesion y seguridad
                 $_SESSION["nombre"] = $usu['nombre'];
                 $_SESSION["rol"] = $usu['rol'];
                 $_SESSION["idcliente"] = $usu['idcliente'];
@@ -79,11 +98,19 @@ function crear_variables_sesion($user, $password) {
     }
 }
 
+/**
+ * Funcion que inserta en la tabla productos los valores pasados por parametros.
+ * @param type $nombre --> Nombre del producto a insertar.
+ * @param type $precio --> Precio del producto a insertar.
+ * @param type $tipo --> Tipo de producto a insertar.
+ */
 function insertar_producto($nombre, $precio, $tipo) {
     try {
         $centinela = false;
         $bd = conexion_bbdd();
         //echo "Conexión realizada con éxito <br>";
+        //Los valores pasados por parametro se introducen en la consulta para asi realizar
+        //
         $ins = "insert into productos(nombre, precio, tipo) values ('" . $nombre . "','" . $precio . "','" . $tipo . "');";
         $result = $bd->query($ins);
         if ($result) {
@@ -100,7 +127,11 @@ function insertar_producto($nombre, $precio, $tipo) {
     }
 }
 
-//Funcion que elimina de la BBDD un producto pasandole por parametro el id del producto a eliminar
+/**
+ * Funcion que elimina de la BBDD un producto pasandole por parametro el id del producto 
+ * a eliminar.
+ * @param type $idprod
+ */
 function borrar_producto($idprod) {
     try {
         $centinela = false;
@@ -121,7 +152,12 @@ function borrar_producto($idprod) {
     }
 }
 
-//Funcion que devuelve la informacion del producto.
+/**
+ * Funcion necesaria para que en el formulario de modificar producto, pueda dar a modificar 
+ * y tengan los datos por defecto en el formulario.
+ * @param type $idprod --> Variable necesaria para saber la informacion que queremos editar del 
+ * producto pasado por parametro.
+ */
 function extraer_informacion_producto($idprod) {
     try {
         $prod = array();
@@ -142,6 +178,16 @@ function extraer_informacion_producto($idprod) {
     }
 }
 
+/**
+ * Funcion que modificar el producto especificado en el primer valor pasado por 
+ * parametro (idprod), modificando con el resto de valores.
+ * Buscamos modificar el nombre, precio y tipo del idproducto pasado por parametro
+ * 
+ * @param type $idprod --> Id del producto a modificar
+ * @param type $nombre --> Nombre del producto nuevo
+ * @param type $precio --> Precio nuevo
+ * @param type $tipo --> Tipo de producto.
+ */
 function modificar_producto($idprod, $nombre, $precio, $tipo) {
     try {
         $bd = conexion_bbdd();
@@ -161,6 +207,10 @@ function modificar_producto($idprod, $nombre, $precio, $tipo) {
     }
 }
 
+/**
+ * Funcion que mostrará la tabla productos de la base de datos con un enlace para modificar y
+ * eliminar cada uno de ellos especifico.
+ */
 function mostrar_productos_admin() {
     try {
         $bd = conexion_bbdd();
@@ -219,6 +269,10 @@ function mostrar_productos_admin() {
     }
 }
 
+/**
+ * Funcion que muestra el catalogo del usuario con botones(formulario) para añadir el producto con la
+ * cantidad deseada a un carrito
+ */
 function mostrar_catalogo_user() {
     try {
         $bd = conexion_bbdd();
@@ -295,6 +349,13 @@ function sesion_inactividad() {
         }   
     }   
 }
+/**
+ * Funcion que inserta la venta a la tabla ventas, se ejecuta cuuando el usuario 
+ * pulsa el boton de realizar compra
+ * @param type $idcliente --> id del cliente que realiza la compra
+ * @param type $observaciones --> Aqui se guardan los productos con la cantidad de cada uno
+ * @param type $total --> Precio total de la compra
+ */
 function realizar_compra($idcliente, $observaciones, $total){
     try {
         $bd = conexion_bbdd();

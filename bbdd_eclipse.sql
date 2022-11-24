@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2022 a las 11:40:19
+-- Tiempo de generación: 24-11-2022 a las 18:53:08
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -107,7 +107,12 @@ CREATE TABLE `ventas` (
 
 INSERT INTO `ventas` (`idventa`, `idcliente`, `fechaventa`, `observaciones`, `total`) VALUES
 (1, 2, '2022-11-24 10:30:37', 'Intel Core i5 10400F X 1, NVMe PCIe 2TB X 1, Asus ROG Strix B560A X 1, ', 415),
-(2, 6, '2022-11-24 10:39:17', 'MSI VENTUS 2X GeForce RTX 3060 X 1, Gigabyte Aorus B560  X 1, ', 650);
+(2, 6, '2022-11-24 10:39:17', 'MSI VENTUS 2X GeForce RTX 3060 X 1, Gigabyte Aorus B560  X 1, ', 650),
+(3, 2, '2022-11-24 11:28:06', 'NVMe PCIe 2TB X 5, Intel Core i7 10700K  X 3, ', 1947),
+(4, 2, '2022-11-24 14:00:07', 'AMD RYZEN 7 5800X X 4, Gigabyte Aorus B560  X 4, Razer Deathadder V2 X 5, ', 3280),
+(5, 2, '2022-11-24 14:07:29', 'NVMe PCIe 2TB X 3, Intel Core i7 10700K  X 2, Asus ROG Strix B560A X 4, ', 1748),
+(6, 2, '2022-11-24 17:34:32', 'NVMe PCIe 2TB X 4, Intel Core i7 10700K  X 5, Asus ROG Strix B560A X 1, ', 2720),
+(7, 6, '2022-11-24 17:51:16', 'Asus ROG Strix B560A X 3, Intel Core i7 10700K  X 3, MSI MPG Sekira 100R ARGB X 3, ', 1842);
 
 --
 -- Índices para tablas volcadas
@@ -140,13 +145,13 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idproducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idproducto` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `idventa` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idventa` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

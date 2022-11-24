@@ -4,13 +4,11 @@ include '../../resources/templates/cookies.php';
 include '../../resources/templates/funciones.php';
 include_once '../../resources/templates/header.php';
 
-//Hola esto es un milagro
 ?>
 
 <?php
 sesion_inactividad();
-
-if ($_SESSION['nombre']=="usuario" && $_SESSION['nombre']="usuario"){  
+if ($_SESSION['rol']==2){  
     cookieLoginUsers();
 }
 

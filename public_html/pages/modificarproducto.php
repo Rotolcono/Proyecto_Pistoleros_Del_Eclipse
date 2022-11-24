@@ -12,13 +12,12 @@ if (isset($_POST['modificarr'])) {
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];
     $tipo = $_POST['tipo'];
-    //Falta de funcion insertar pasandole por parametro los valores e insertando en la base de datos.
     modificar_producto($idprod, $nombre, $precio, $tipo);
     $info_form = array('idproducto' => $idprod, 'nombre' => $nombre, 'precio' => $precio, 'tipo' => $tipo);
 } else if (isset($_POST['modificar'])) {
     $idproducto = $_POST['idproducto'];
     $info_form = extraer_informacion_producto($idproducto);
-    //var_dump($info_form);
+    
 }
 ?>
 <form action="modificarproducto.php" method="POST">

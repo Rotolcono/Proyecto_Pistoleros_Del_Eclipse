@@ -14,10 +14,8 @@ sesion_inactividad();
 $carrito = array();
 //Si existe la cookie entro
 if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
-    //echo "existe la cookie";
     $carrito = unserialize($_COOKIE['carrito']);
-    //var_dump($carrito);
-    //Capturamos todas las variables POSTy las guardamos. 
+    //Capturamos todas las variables POST y las guardamos. 
     $nombre = $_POST['nombre'];
     $idcliente = $_SESSION['idcliente'];
     $precio = $_POST['precio'];
@@ -25,10 +23,8 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
     //Capturamos toda la informacion en un array.
 
     $producto = array('idcliente' => $idcliente, 'nombre' => $nombre, 'precio' => intval($precio), 'cantidad' => intval($cantidad));
-    //echo"<br>";
-    //echo "aaaaaa";
-    //var_dump($carrito);
-    //Necesario para que al introducir un producto que ya esta en el carrito solo sume las unidades.
+    
+    //Necesario para que al introducir un producto que ya esta en el carrito, sobreescriba las cantidades.
 }if (isset($_POST['añadir'])) {
     //Capturamos todas las variables POSTy las guardamos.
     $nombre = $_POST['nombre'];
@@ -39,16 +35,16 @@ if (isset($_COOKIE['carrito']) && isset($_POST['añadir'])) {
     $producto = array('idcliente' => $idcliente, 'nombre' => $nombre, 'precio' => intval($precio), 'cantidad' => intval($cantidad));
     //array_push($carrito, $producto);
     $carrito[$nombre] = $producto;
-    //var_dump($carrito);
-
+    
+    //Serializamos para añadir el array a la cookie y poder recuperar el array en otro lado
     $carrito = serialize($carrito);
     setcookie("carrito", $carrito, time()+3600);
     unset($_POST['añadir']);
-    //echo "ddd";
+    
 }
 
 
-//var_dump($carrito);
+
 ?>
 
 <?php
