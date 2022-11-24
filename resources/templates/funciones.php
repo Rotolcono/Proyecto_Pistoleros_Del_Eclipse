@@ -327,6 +327,7 @@ function mostrar_catalogo_user() {
     }
 }
 
+/* Funcion de inactividad de la sesion */
 function sesion_inactividad() {
     if ($_SESSION["autentificado"]!= "SI") {
         //si no está logueado lo envío a la página de autentificación        
