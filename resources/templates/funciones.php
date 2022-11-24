@@ -199,7 +199,7 @@ function mostrar_productos_admin() {
             echo '<td>';
             echo "<form method='post' action= 'modificarProducto.php'>";
             echo "<input type='text' name='idproducto'  value='" . $usu['idproducto'] . "' hidden/>";
-            echo "<button class='btn btn-outline-dark' type='submit' name='modificar'>Modificar</button>";
+            echo "<button class='btn btn-outline-success' type='submit' name='modificar'>Modificar</button>";
             echo "</form>";
             echo '</td>';
             //enlace borrar
@@ -259,7 +259,7 @@ function mostrar_catalogo_user() {
             echo '<td>';
             echo "<input type='text' name='idproducto'  value='" . $_SESSION['idcliente'] . "' hidden/>";
             echo "<input type='text' name='idproducto'  value='" . $usu['nombre'] . "' hidden/>";
-            echo "<button class='btn btn-outline-dark' type='submit' name='modificar'>Añadir del Carrito</button>";
+            echo "<button class='btn btn-outline-success' type='submit' name='modificar'>Añadir del Carrito</button>";
             echo "</form>";
             echo '</td>';
             echo '</tr>';
@@ -281,12 +281,12 @@ function sesion_inactividad() {
         $fechaGuardada = $_SESSION["ultimoAcceso"];
         $ahora = date("Y-n-j H:i:s");
         $tiempo_transcurrido = (strtotime($ahora) - strtotime($fechaGuardada));
-        //comparamos el tiempo transcurrido y si paso el tiempo puesto en la misma pagina, te devuelve a la principal
+        //comparamos el tiempo transcurrido y si paso el tiempo puesto(10 minutos) en la misma pagina, te devuelve a la principal
         if ($tiempo_transcurrido >= 600) {
             // destruyo la sesión
             session_destroy();
             //envío al usuario a la pag. de autenticación
-            header("Location: login.php");
+            header("Location: login.php?fuera=1");           
             //sino, actualizo la fecha de la sesión
         } else {
             $_SESSION["ultimoAcceso"] = $ahora;

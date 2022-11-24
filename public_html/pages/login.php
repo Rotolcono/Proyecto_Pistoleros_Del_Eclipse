@@ -9,6 +9,11 @@ include_once '../../resources/templates/header.php';
             <legend class='text-center'>Inicia Sesión</legend>
 
             <?php
+            //para la inactividad en la sesion
+            if (isset($_GET['fuera']) && $_GET['fuera'] == 1) {
+                echo "<h2>Tienpo de inactividad en una misma pagina superado</h2>";
+            }
+            
             //Almacenamos las variablees enviadas por POST
             if (isset($_POST['login'])) {
                 if (isset($_POST['nombre'])) {
@@ -23,7 +28,7 @@ include_once '../../resources/templates/header.php';
                 $booleano = iniciar_sesion($usuario, $password);
                 if ($booleano == true) {
                     crear_variables_sesion($usuario, $password);
-                    
+
                     // inicio la sesión
                     $_SESSION["autentificado"] = "SI";
                     //defino la sesión que demuestra que el usuario está autorizado
@@ -40,8 +45,8 @@ include_once '../../resources/templates/header.php';
             }
             ?></h2>
                 <?php
-                //Iniciio de sesion
-                ?>
+            //Iniciio de sesion
+            ?>
 
             <!--action -> controlador y la ACCION!! -->
             <div class="mb-3">
@@ -57,7 +62,7 @@ include_once '../../resources/templates/header.php';
                 </div>
             </div>
 
-            <button type="submit" name="login" class="btn btn-success container-xxl ">Entrar</button>
+            <button type="submit" name="login" class="btn btn-outline-success container-xxl ">Entrar</button>
 
             </div>
         </fieldset>

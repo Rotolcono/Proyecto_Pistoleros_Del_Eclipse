@@ -6,7 +6,7 @@ include_once '../../resources/templates/header.php';
 
 
 <?php
-
+sesion_inactividad();
 if (isset($_POST['borrar'])) {
     //Almacenamos el id del producto
     $idprod = $_POST['idproducto'];

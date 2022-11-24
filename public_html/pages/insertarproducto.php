@@ -5,6 +5,7 @@ include_once '../../resources/templates/header.php';
 
 
 <?php
+sesion_inactividad();
 if (isset($_POST['insertar'])) {
     $nombre = $_POST['nombre'];
     $precio = $_POST['precio'];
@@ -38,7 +39,7 @@ if (isset($_POST['insertar'])) {
         </select>
     </div>
 
-    <button type="submit" name="insertar" class="btn btn-success container-xxl">Insertar Producto</button>
+    <button type="submit" name="insertar" class="btn btn-outline-success container-xxl">Insertar Producto</button>
 
 </form>
 <?php

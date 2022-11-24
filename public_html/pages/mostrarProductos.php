@@ -6,7 +6,7 @@ include_once '../../resources/templates/header.php';
 
 
 <?php
-
+sesion_inactividad();
 mostrar_catalogo_user();
 ?>
 

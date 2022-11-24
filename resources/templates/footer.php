@@ -1,91 +1,64 @@
-<footer class="footer">
-    <div class="footer__addr">
-        <h1 class="footer__logo">Algo</h1>
+<!-- footer -->
+<footer>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-xs-12">
+                    <div class="first">
+                        <h4>Acerca de nosotros</h4>
+                        <p>Nosotros somos una pagina dedicada
+                            a la venta de diferentes piezas
+                            hardware para crear tu ordenador
+                            desde cero y que no tengas ningun
+                            tipo de problema ya que trajabamos
+                            con multitud de marcas para dar la
+                            mayor fiabilidad y el mejor servicio</p>
+                    </div>
+                </div>
 
-        <h2>Contact</h2>
+                <div class="col-md-4 col-xs-12">
+                    <div class="second">
+                        <h4> Navigacion</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-        <address>
-            En algún lugar. Talavera de la Reina<br>
+                <div class="col-md-4 col-xs-12">
+                    <div class="third">
+                        <h4>Contactos</h4>
+                        <ul>
+                            <li>Israel y Roberto</li>
+                            <li></li>
 
-            <a class="footer__btn" href="mailto:ejemplo@gmail.com">Envíanos un email</a>
-        </address>
-    </div>
-
-    <ul class="footer__nav">
-        <li class="nav__item">
-            <h2 class="nav__title">Media</h2>
-
-            <ul class="nav__ul">
-                <li>
-                    <a href="#">Online</a>
-                </li>
-
-                <li>
-                    <a href="#">Imprimir</a>
-                </li>
-
-                <li>
-                    <a href="#">Anuncios</a>
-                </li>
-            </ul>
-        </li>
+                            <li><i class="far fa-envelope"></i> israelElmahDuro@gmail.com</li>
+                            <li><i class="far fa-envelope"></i> robertoAKpildoriñas@gmail.com</li>
 
 
+                            <li><i class="fas fa-map-marker-alt"></i> Talavera de la Reina, Toledo </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="line"></div>
+                    <div class="second2">
+                        <a href="https://accounts.google.com/v3/signin/identifier?dsh=S302544869%3A1669261488813061&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=ARgdvAtY1nZ8XaSwDKu1_TyuDJVL9baqkygZOGZFZdZnqUce0hnHv-ow--qft9mnfAzDYcXaAmXTDw" target="_blank"> <i class="fab fa-google fa-2x margin"></i></a>
+                        <a href="https://github.com/Rotolcono/Proyecto_Pistoleros_Del_Eclipse" target="_blank"> <i class="fab fa-github fa-2x margin"></i></a>
+                        <a href="https://es-es.facebook.com/" target="_blank"> <i class="fab fa-facebook fa-2x margin"></i></a>
+                        <a href="https://youtu.be/stgdmw8PcRY" target="_blank"><i class="fab fa-youtube fa-2x margin" ></i></a>
 
-        <li class="nav__item nav__item--extra">
-            <h2 class="nav__title">Tecnología</h2>
+                    </div>
 
-            <ul class="nav__ul nav__ul--extra">
-                <li>
-                    <a href="#">Hardware</a>
-                </li>
-
-                <li>
-                    <a href="#">Software</a>
-                </li>
-
-                <li>
-                    <a href="#">Firmas digitales</a>
-                </li>
-
-                <li>
-                    <a href="#">Automatización</a>
-                </li>
-
-                <li>
-                    <a href="#">IA</a>
-                </li>
-
-                <li>
-                    <a href="#">IoT</a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="nav__item">
-            <h2 class="nav__title">Legal</h2>
-
-            <ul class="nav__ul">
-                <li>
-                    <a href="#">Política de privacidad</a>
-                </li>
-
-                <li>
-                    <a href="#">Terminos de uso</a>
-                </li>
-
-                <li>
-                    <a href="#">Mapa del sitio</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-
-    <div class="legal">
-        <p>&copy; 2022. Todos los derechos reservados.</p>
-
-        <div class="legal__links">
-            <span>Hecho <span class="heart">♥</span> remotamente por 2ª DAW</span>
+                </div>
+            </div>
         </div>
     </div>
 </footer>
+</body>
+</html>

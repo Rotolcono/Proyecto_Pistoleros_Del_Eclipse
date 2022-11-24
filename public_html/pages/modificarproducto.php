@@ -5,6 +5,7 @@ include_once '../../resources/templates/header.php';
 
 
 <?php
+sesion_inactividad();
 if (isset($_POST['modificarr'])) {
     $idprod = $_POST['idprod'];
     $nombre = $_POST['nombre'];
@@ -66,7 +67,7 @@ if (isset($_POST['modificarr'])) {
         </select>
     </div>
 
-    <button type="submit" name="modificarr" class="btn btn-success container-xxl">Modificar Producto</button>
+    <button type="submit" name="modificarr" class="btn btn-outline-success container-xxl">Modificar Producto</button>
 
 </form>
 <?php

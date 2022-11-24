@@ -12,7 +12,7 @@ function cookieVisitasPaginaPrincipal() {
         $visitas = ((int) $_COOKIE["visitas"]);
         $visitas++; //Se actualiza la variable 
         setcookie("visitas", $visitas, time() + 10);
-        echo "<h1>Bienvenido a Pistoleros del Eclipse (" . $visitas . " vez)</h1>";
+        echo "<h1>Bienvenido a Pistoleros del Eclipse</h1>";
     }
 }
 
