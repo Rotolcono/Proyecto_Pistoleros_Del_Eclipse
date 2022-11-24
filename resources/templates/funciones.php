@@ -252,14 +252,15 @@ function mostrar_catalogo_user() {
             echo '<td>' . $usu['precio'] . '</td>';
             echo '<td>' . $usu['tipo'] . '</td>';
             echo '<td>' .
-            "<form method='post' action= 'mostrarProducto.php'>"
-            . "<input type='number' class='form-control' id='' placeholder='' name='precio' value='' min='0' max='100' maxlength='3' required>"
+            "<form method='post' action= 'mostrarProductos.php'>"
+            . "<input type='number' class='form-control' id='' placeholder='' name='cantidad' value='' min='0' max='100' maxlength='3' required>"
             . '</td>';
             //Enlace modificar
             echo '<td>';
-            echo "<input type='text' name='idproducto'  value='" . $_SESSION['idcliente'] . "' hidden/>";
-            echo "<input type='text' name='idproducto'  value='" . $usu['nombre'] . "' hidden/>";
-            echo "<button class='btn btn-outline-success' type='submit' name='modificar'>Añadir del Carrito</button>";
+            //echo "<input type='text' name='idcliente'  value='" . $_SESSION['idcliente'] . "' hidden/>";
+            echo "<input type='text' name='nombre'  value='" . $usu['nombre'] . "' hidden/>";
+            echo "<input type='text' name='precio'  value='" . $usu['precio'] . "' hidden/>";
+            echo "<button class='btn btn-outline-dark' type='submit' name='añadir'>Añadir al Carrito</button>";
             echo "</form>";
             echo '</td>';
             echo '</tr>';
@@ -291,6 +292,26 @@ function sesion_inactividad() {
         } else {
             $_SESSION["ultimoAcceso"] = $ahora;
         }
+    }
+}
+function realizar_compra($idcliente, $observaciones, $total){
+    try {
+        $bd = conexion_bbdd();
+        //echo "Conexión realizada con éxito <br>";
+        $ins = "insert into ventas(idcliente, observaciones, total) values ('" . $idcliente . "','" . $observaciones . "','" . $total . "');";
+        $result = $bd->query($ins);
+        if ($result) {
+            //echo "insert correcto <br>";
+            //echo "Fila(s) insertadas: ".$result->rowCount()."<br>";
+            echo "<h2>Compra Realizada con exito</h2>";
+            unset($_SESSION["carrito"]);
+        } else {
+            print_r($bd->errorinfo());
+        }
+        //echo "Código de la fila insertada".$bd->lastInsertId()."<br>";
+        cerrar_sesion_bbdd();
+    } catch (Exception $e) {
+        echo "Error al iniciar sesion: " . $e->getMessage();
     }
 }
 ?>

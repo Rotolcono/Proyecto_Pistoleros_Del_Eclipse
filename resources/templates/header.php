@@ -76,6 +76,9 @@
                             <a class="nav-link" href="mostrarProductos.php">Ver Catalogo</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="mostrarCarrito.php">Mi Carrito</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="cerrarSesion.php">Cerrar Sesion</a>
                         </li>
                     </ul>
